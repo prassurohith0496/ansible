@@ -1,0 +1,117 @@
+3.1:ANSIBLE INVENTORY FILE:
+----------------------------
+- Ansible Defines collection of Hosts that Ansible will Manage.
+- These Hosts can also be assighned to Groups.
+- Ansible works with multiple servers at a atime
+- Ansible needs SSH Connectivity to all Clients
+
+ssh for Linux 
+power shell for windows   ----AGENT LESS
+
+- So information about these Target Clients/Hosts can be Stored on Inventory File.
+- Hosts can be in multiple groups.
+- Default Inventory File is " /etc/ansible/hosts"
+----------------------------
+# cat /etc/ansible/hosts.
+
+server-1
+server-2
+
+Groups:
+-------
+[prod]
+
+prod-1
+prod-2
+prod-3
+
+[poc]
+
+poc-1
+poc-2
+poc-3
+
+Nested Groups:
+--------------
+[usa]
+test1
+test2
+[uk]
+test3
+test4
+[usa-uk]
+usa
+uk
+-------------------------------
+u can use cutomized inventory file too
+u can create seperate inventory files for dedicated projects.
+
+#ansible all -i inventory --list-hosts
+
+
+INVENTORY PARAMETERS:
+---------------------
+- Ansible_Connection - ssh/win/localhost
+- Ansible_Port -  22/5986
+- Ansible_user: - root/administrator
+- Ansible_ssh_pass: - Password
+- Ansible_Host: - server1
+
+Example:
+--------
+web ansible_host=server1 ansible_connection=ssh ansible_user=root
+localhost ansible_connection=localhost
+
+Demo: ansible target1 -m ping -i inventory.txt
+-----
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.2:Managing Ansible Configuration files:
+------------------------------------------
+- Behaviour of Ansible can be customized by modifying settings in Ansible configuration File.
+
+- Ansible config file Location at "/etc/ansible/ansible.cfg"
+- Ansible looks for ".ansible.cfg" file in users home dir.this config file is used instead of "/etc/ansible/ansible.cfg"
+
+# ansible --version
+# ansible servers --list-hosts -v
+
+Manage settings In The Configuration File:
+------------------------------------------
+inventory: specifies path of inventory file
+----------
+remote_user: name of the user to login as on the managed hosts.if not specified current users name is used
+------------
+asks_pass: not asks for passwords or asks
+---------
+Became: switch user to perform tasks
+-------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
