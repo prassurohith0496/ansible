@@ -1,0 +1,21 @@
+ANSIBLE-2:
+----------
+Pre-Requsites:
+--------------
+- YAML
+- Ansible Basics
+- Inventory files
+- PlayBooks
+- Modules
+
+Topics Can cover:
+-----------------
+- Roles
+- Asynchronous Actions
+- Error handling
+- Jinja 2 Templating
+- Lookups
+- Vault
+- Dynamic Inventory
+- Custom Modules
+- Plugins
