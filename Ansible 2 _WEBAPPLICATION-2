@@ -1,0 +1,82 @@
+WEB APPLICATION:
+----------------
+- Settingup "Flask" app with "MYSQL DB"
+Steps:
+------
+1.Identity Server
+2.Install Python Libraries
+3.Install Configure MYSQL
+4.Install Flash.
+5.Source Code
+6.RUN.
+
+TIP:Please calculate & Analyse all Manual Steps of all above Packages.
+---
+EXAMPLE:
+--------
+
+DEPLOY WEBAPPLICATION VIA PLAYBOOKS:
+------------------------------------
+webapp.yaml
+
+- name: Deploy a Web Application 
+  hosts: db_and_web_serever1,db_and_web_server2
+  tasks:
+    - name: install all required dependencys
+	  apt: name= python state=installed
+	  
+	  or
+	
+    - name: install mysql database
+      apt:  name={{item}} state=installed
+      with_items:
+        - mysql-server
+        - mysql-client
+		
+    - name: start mysql service 
+      service:
+          name: mysql
+          state: started
+          enabled: yes
+    
+	- name: create Application DataBase
+      mysql_db: name=employee_db  state=present
+
+    - name: create database user 
+      mysql_user:
+           name: rohith
+           password: 12345
+           priv: '**:ALL'
+           state: present
+    - name: install python flask dependency
+      pip:
+        name={{item}}	state=present 
+      with_items:
+            - flask
+            - flask-mysql
+    - name: copy source code
+	  copy: src=app.py  dest=/opt/app.py
+	  
+	  
+	- name: start web server
+      shell: FLASK_APP=app.py  nohup flask run --host=0.0.0.0
+   
+   
+  RUN_PLAYBOOK:
+  -------------
+  #ansible-playbook  playbook.yml -i inventory.txt
+  
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+			
+	  
+
+
+
+
+
+
+
+
+
+
+
