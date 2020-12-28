@@ -1,0 +1,119 @@
+ANSIBLE INSTALLATION:
+---------------------
+server
+--------
+yum install epel-release
+yum update -y
+yum install git python python-devel python-pip openssl ansible
+ansible --version
+cd /etc/ansible 
+--------------------
+vi ansible.cfg
+-----------------
+inventory
+sudo_user
+
+vi hosts
+-----------
+
+[batch37]
+ip
+ip
+ip
+hostname
+..
+..
+
+[group1]
+ip
+ip
+...
+...
+...
+adduser devops37
+passwd devops37
+visudo
+-------
+devops37 ALL=(ALL)  NOPASSWD: ALL
+client
+-------
+
+adduser devops37
+passwd devops37
+
+visudo
+-------
+devops37 ALL=(ALL)  NOPASSWD: ALL
+su - devops37
+server
+--------
+
+su - devops37
+
+ssh-keygen -t rsa
+ls -la
+scp src root@ip:/path
+scp -r src root@ip:/path
+ssh-copy-id devops37@client-ip
+ssh client-ip
+ansible batch37 -m ping
+-------------------------------------------------------------------
+
+ansible all -a "ls -l /opt"
+
+ansible batch36 -a "cat /etc/passwd"
+
+ansible 192.168.58.131 -a "cat /etc/passwd"
+
+ansible batch36 -a "touch /opt/sony1"
+
+ansible batch36 -a "mkdir /opt/test678"
+
+ansible batch38 -m copy -s -a "src=path/of/file dest=/path"
+
+ansible batch36 -m yum -s -a "name=git"
+
+ansible batch36 -a "yum install git -y"
+
+
+ansible batch36 -m yum -s -a "name=git state=present"
+
+ansible batch36 -s -a "yum install git"
+
+ansible batch36 -m yum -s -a "name=git state=absent"
+
+ansible batch36 -s -a "yum remove git"
+
+ansible batch38 -m yum -s -a "name=httpd state=present"
+
+ansible batch38 -m service -s -a "name=httpd state=started"
+
+ansible batch38 -s -a "service httpd status"
+
+ansible batch38 -s -a "service httpd start"
+
+ansible batch36 -m user -s -a "name=alekhya"
+
+ansible batch38 -s -a "useradd user1"
+
+ansible batch38 -m user -s -a "name=alekhya state=absent"
+
+ansible batch36 -s -a "userdel user1"
+
+ansible batch36 -s -a "mkdir "/opt/ooooo1"
+
+ansible batch36 -s -a "touch /opt/abc"
+
+ansible batch36 -m file -s -a "path=/opt/123abc state=touch"
+
+ansible batch36 -m file -s -a "path=/opt/456def state=directory"
+
+
+
+
+
+
+
+
+
+
