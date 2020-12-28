@@ -1,0 +1,25 @@
+ANSIBLE LOOPS:
+--------------
+Example: Create a multi users using loops & user module.
+--------
+- name: create users
+  hosts: localhost
+  tasks: 
+   -user: name='{{item.username}}' state=present uid:'{{ item.uid}}'
+    loop:
+	  - name: joe
+        uid: 1010
+      - name: rohith
+        uid: 1020
+
+loops with_* 
+------------
+learn more about with* using google
+-
+name: create users,view config, geturls
+hosts: localhost
+tasks:
+  -user: name='{{item}}' state=present	
+  -debug: var=item
+  with_items,with_file,withurl
+  ------------------------------------------------------------------------------------------------------------------------------------------------------------
