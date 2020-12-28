@@ -1,0 +1,104 @@
+5.1.ANSIBLE PLAYBOOKS:
+------------------
+Simple Ansible PlayBook:
+------------------------
+- Run command 1 on server-1
+- Restarting server-7
+
+Complex Ansible playBook:
+-------------------------
+- Deploy 50vms on Public Cloud / Private Cloud.
+- provision Storage to all VMS.
+- Setup Network config to all VMS.
+- Setup Cluster Configs
+- Install & Configs Backups Clients on VMS.
+- Setup Monitoring Components.
+
+How PlayBooks are Written:
+--------------------------
+- PlayBook: A Single YAML File.(Contains no of PLAYS)
+- PLAY: Defines a set of activities [TASKS] to be run on HOSTS.
+- TASKS: An action to be performed on the host.
+  >Execute a Command
+  >Run a Script
+  >Install a Package
+  >Shutdown/Restart.
+  
+EXAMPLE PlayBook:
+------------------
+playbook.yaml -----Single playbook with 2 plays
+
+-
+name: play1
+hosts: localhost  or [groupsname]--------Clients.
+tasks:
+   - name: execute cmd date
+     command: date
+   - name: execute script on server
+     script: test_script.sh
+   - name: install httpd service
+     yum: 
+       name: httpd	 
+       state: present
+-
+
+name: play2
+hosts: localhost
+tasks:
+   - name: start webserver
+     service:
+          name: httpd
+          state: started
+
+RUN PLAYBOOKS: ansible-playbook  playbook.yaml
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------		  
+5.2.ANSIBLE PLAYBOOK COMMANDS:
+------------------------------
+- 2 ways to run playbooks.
+
+ansible:
+--------
+# ansible <host> -a <cmd>
+# ansible all -a "/sbin/reboot"
+# ansible <hosts> -m <module>
+# ansible target1 -m ping
+
+ansible-playbook:
+-----------------
+# ansible-playbook  <playbook-name>  
+# ansible-playbook playbook-webserver.yaml
+yaml or yml
+
+default Group:
+--------------
+# all
+# ansible all -m ping -i inventory.txt
+# ansible-playbook playBook-ping.yaml -i inventory.txt
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5.3. TIPS & TRICKS - ANSIBLE PLAYBOOKS.
+----------------------------------------
+ATOM IDE With ANSIBLE:
+----------------------
+1.AIM: Develop YAML Scripts & SYNC YAML with Ansible Master Remotly.
+
+->Download ATOM IDE
+->Install ATOM IDE
+->Open a New Project
+--Folder---File
+
+2.
+->Download "linter-js.yaml to ATOM IDE
+->Install- apm install linter-js.yaml
+
+3.Atom Remote SYNC.
+-To Sync local Files to ansible controller Machine.
+-Download & Install.
+#apm Install Remote-Sync
+
+CONFIG 
+------
+# right click on project folder ---->>select remote sync---->configure---->ip,username,passwd,target Dir--->Save
+4.check all Modules on Ansible Docs.
+
+Check YAML SYNTAX
+Using YAML Lint
