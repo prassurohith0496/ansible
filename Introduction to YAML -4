@@ -1,0 +1,55 @@
+4.YAML STUDYS:
+---------------
+- Ansible Playbooks are written particularly in YAML.
+- Ansible Playbooks are plain text files that are written in YAML.
+- A YAML files used to Represent DATA [ CONFIG-DATA ]
+- In YAML data will be stored like "KEY VALUE PAIR"
+
+
+Structures:
+-----------
+KEY=VALUE:
+----------
+fruit: apple
+vegitable: carrot
+liquid: water
+meat: chicken
+
+ARRAY/LISTS:
+------------
+fruits:
+  - orange
+  - apple
+  - banana
+vegitables:
+  - carrot
+  - tomato
+  - califlower
+  
+DICTIONARY/MAP:
+---------------
+Banana:
+  calories: 105
+  fat: 0.5g
+  crabs: 27g
+Grapes:
+  calories: 16g
+  fat: 0.3g
+  crabs: 27g
+
+LIST OF DIRECTORIES:
+--------------------
+- color: Blue
+  Model:
+    Name: corvette
+    Model: 1995
+  Transmission: Manual
+  Price: $20,000
+
+- color: grey
+  Model:
+    Name: corvettt
+    Model: 1996
+  Transmission: Manual
+  Price: $20,000
+  
