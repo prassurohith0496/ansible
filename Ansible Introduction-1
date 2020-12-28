@@ -1,0 +1,113 @@
+ANSIBLE STUDYS:
+===============
+Chapter-1:
+----------
+1.1:Introduction:
+------------------
+- Introduction to ANSIBLE
+- Setup Ansible Lab
+- Introduction to YAML
+- Inventory files
+- Playbooks
+- Variables
+- Conditionals
+- Loops
+- Roles
+
+What is Ansible?
+----------------
+- Ansible is an open source configuration management.
+- Ansible can Automate & Standardize the config of remote hosta& vms
+- Instead of writting custom scripts, sysadmin create high-level plays in Ansible. A Play performs a series of tasks on the host or group of hosts.
+  specified in play . a file that contains one or more plays is called a playbook.
+
+- Ansible Architecture is agentless, work is pushed to remote hosts when ansible executes modules that performs a actual work of the tasks of a play.
+- Ansible Comes with hundreads of Modules
+- ansible was originally written by "MICHAEL DELTAAN".
+Why Ansible?
+------------
+- Provisioning
+- Configuration Management
+- Continious Delivary
+- Application Deployment
+- Security Complience
+website: www.docs.ansible.com
+-------
+
+1.2. Ansible Concepts & Architecture:
+--------------------------------------
+
+- Ansible Contains 2 Machines.
+
+1.Control Node.
+2.Managed Hosts.
+
+- Ansible software is installed on the controller node
+- Managed hosts are listed in a host inventory a text file on the control node that list of managed hostnames or ip addresses.
+
+- system admin login to control node & Launch Ansible & Manage  list of hosts using Playbooks.
+- Ansible uses SSH to Communicate Clients.
+
+1.Controller Node Components:
+-------------------------------
+Ansible configuration: Ansible has config settings that defines how it behaves. These settings include such things as the Remote user to Execute Commands.
+----------------------
+Host Inventory: - Ansible host Inventory defines which config group hosts belongs to
+--------------- - Inventory can define how ansible communicates with a managed host & also defines host & group variable values.
+
+Core Modules: - core modules are modules that come bundled with ansible. there are 400+ Core Modules.
+-------------
+
+Custom Modules: - users can write custom modules & add them to library.
+--------------- - use shell,Ruby,python etc to Make Custom Modules.
+
+Playbook:  - Ansible PlayBook are files written in YAML. Syntax that define the Modules,with Arguments, To Apply to Managed nodes.
+---------  - They declare the Tasks that need to be performed.
+
+
+Connection plugins: - plugins that enable communication with managed hosts or cloud providers. 
+------------------- - these includes SSH & Local.
+
+Plugins: - Extentions that Enchance Ansible Functionality. 
+-------- - Controller Node Must Have Python 2.6 or 2.7 Install.
+         - for clients  python 2.4 or later
+
+Why Ansible?
+------------
+-Provisioning
+-Configuration Management
+-Continious Delivary
+-Application Deployment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
