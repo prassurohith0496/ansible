@@ -1,0 +1,57 @@
+ANSIBLE ROLES:
+--------------
+- In Ansible roles can be assighned to client Machines [mysql,nginx,redis,backup,monitor]
+- Make a piece of code into a package & use roles when ever you want.
+- To make your scripts reusable for everyone & use repetidly.
+
+Playbook.yml
+-------------
+---
+- name: install & Config sql
+  hosts: db-sever-1----db-server-2
+  roles:
+     - mysql
+  tasks:
+     - name: install Pre-Req
+	   yum: name= prereq packages state=present
+	 - name: Install mysql Packages
+	   yum: name=mysql state=present 
+	   
+- we can organise the code with in ansible using roles
+->TASKS,VARS,HANDLERS,DEFAULTS,TEMPLATES.
+-Roles can be share to the Ansible Community like Ansible Galaxy.
+
+-Check Roles & Use from " ANSIBLE GALAXY"
+
+#	amsible-galaxy init mysql
+
+mysql 
+-Read.Me.md
+-TEMPLATES
+-TASKS
+-HANDLERS
+-VARS
+-DEFAULTS
+-META
+--------------------->>MYPLAYDIRECTORY
+                       - playbook.yml
+                       - roles
+                       - move all data to roles to find a playbook
+Playbook-role.yaml
+-------------------
+- name: install & Config MYSQL
+  hosts: db-server 
+  roles:
+     - mysql
+
+To find roles :
+---------------
+- Search Roles on the Ansible Galaxy.
+#from cli:
+----------
+# ansible-galaxy search mysql --------------Search Role
+# ansible-galaxy install grerlinguy.mysql ------------------install role
+# ansible-galaxy list
+# ansible-config dump | grep ROLE 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
