@@ -1,0 +1,9 @@
+DEMO PROJECT FOR BEGINERS:
+--------------------------
+1.Install Centos.
+2.Install httpd,configure firewall,start httpd.
+3.install mariadb,configure mariadb,startmariadb,configure firewall,configuredb,loaddb.
+4.install php,configure code.
+
+TIP: first analyse & Make a Proper Plan.
+----
