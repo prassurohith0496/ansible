@@ -1,0 +1,21 @@
+Ansible Variables:
+------------------
+-Stores information that varies with each host.
+
+EX:
+---
+-
+name: Add DNS Server to resolv.conf
+hosts: localhost
+vars:
+  dns_server-1: 10.1.250.10
+  dns_server-2: 10.1.250.11
+tasks:
+  - linefile:
+       path: /etc/resolv.conf
+	   line: 'name server {{dns_server-1}}'
+  - linefile:
+       path: /etc/resolv.conf
+	   line: 'name server {{dns_server-2}}'   
+
+-------------------------------------------------------------------------------------------------------------
