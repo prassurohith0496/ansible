@@ -1,0 +1,124 @@
+6.ANSIBLE MODULES:
+-------------------
+Ansible Modules are Configured to various Groups Based on the Functionality.
+
+Examples:
+---------
+System Modules: - its performed to be actions at system level such as  -user,Group,Hostname,IPTables,LVG,LVOL,MAKE,MOUNT,PING,TIMEZONE,SERVICE,SYSTEMD.
+----------------
+Commands: Commands ,Expect,Raw,Script,Shell.
+----------
+Files: we can work with files..-ACL,Archive,Copy,File,Line in File...Replace,Stat,Template,UnArchive.
+------
+DataBase: MangoDB,MYSQL,VERTICA
+---------
+CLOUD: AWS,AZURE,DOCKER,VMWARE,OPENSTACK.
+------
+WINDOWS: win_copy,win_command,win_file,win_path.
+--------
+
+Example Command Module:
+-----------------------
+-
+
+name: play1
+hosts: localhost
+tasks:
+  - name: execute command 'date'
+    command: date
+  - name: Display resolv.conf contents
+    command: cat /etc/resolv.conf
+
+Example Script Module:
+----------------------
+-Runs a local script on a remote node after transfering it.
+-Copy & Execute Script on Remote Servers.
+
+playbook.yml
+-------------
+- 
+
+name: play1
+hosts: localhost
+tasks:
+  - name: Run a script on remote server
+    script: /some/localscript.sh  -arg1 -arg2
+
+Example Service Module:
+------------------------
+- Manage Services - Start,Stop,Restart.
+
+Playbook.yml
+------------
+-
+name: start service in order
+hosts: localhost
+tasks:
+  - name: start the  db
+    service:
+	   name: postgress
+	   state: strated   ---if not started then started or no.
+	   
+
+Idempotency:
+------------
+an operation is idempotent if the result of performing it once is exactly the same as the result of performing it repeatedly without any intervening actions.
+
+LineinFile:
+-----------
+-Search for a line in a file & replace it or add it if doesnt exist.
+
+playbook.yml
+------------
+-
+name: add DNS server to resolv.conf 
+hosts: localhost
+tasks:
+  -linefile:
+      path: /etc/resolv.conf
+	  line: 'name server 10.1.250.10'
+	  
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+	   
+	   
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
